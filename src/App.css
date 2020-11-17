@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p, small {
+  margin: 0;
+  padding: 0;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #000;
+}
+.navbar-toggler-icon {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+.selected {
+  border-bottom: 2px solid #00aa00;
+}
+.text-light {
+  color: #000000!important;
+}
+@media (max-width:991px){
+   .google, .facebook{
+     width: 83% !important;
+   }
+   .form_wrapper {
+    margin-top: 5% !important;
+  }
+  .custom_card{
+    width: 100% !important;
+  }
+}

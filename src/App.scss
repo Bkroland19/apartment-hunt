@@ -1,0 +1,297 @@
+$textColor: #ffffff !important;
+$linkColor: #000000;
+$buttonBgColor: #275a53 !important;
+$footerTextColor: #bcccc9 !important;
+$font-weight: 700;
+$newHeadingColor: #16322e;
+
+//extend in scss
+%button-shared {
+  background-color: $buttonBgColor;
+  color: $textColor;
+}
+%background-image-shared {
+  background-image: url("./components/resources/images/banner.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 350px;
+  background-size: cover;
+}
+
+//header part;
+.header {
+  .header__logo {
+    height: 54px !important;
+  }
+  background-color: $textColor;
+  .navbar-toggler-icon {
+    @extend %background-image-shared;
+    background-image: url("./components/resources/logos/navbarIcon.png");
+    height: 100%;
+  }
+  .nav-link {
+    color: $linkColor;
+    font-weight: $font-weight;
+  }
+  .loginBtn {
+    button {
+      @extend %button-shared;
+    }
+    .nav-link {
+      @extend %button-shared;
+    }
+  }
+
+  .row {
+    padding: 10px 0;
+  }
+}
+
+//banner part;
+.section {
+  .banner-bg {
+    @extend %background-image-shared;
+    .banner-bg-black {
+      background-color: rgba(0, 0, 0, 0.431);
+      height: 100%;
+      .banner-main {
+        padding-top: 60px;
+      }
+      h1 {
+        color: $textColor;
+      }
+      form {
+        input {
+          width: 400px !important;
+        }
+      }
+      button {
+        @extend %button-shared;
+      }
+    }
+    .banner-footer {
+      p {
+        color: $buttonBgColor;
+      }
+      h5 {
+        color: $linkColor;
+      }
+    }
+  }
+}
+
+//footer part;
+.footer {
+  .footer-bg {
+    background-color: $buttonBgColor;
+    box-sizing: border-box;
+    h4 {
+      color: $footerTextColor;
+    }
+    p {
+      color: $footerTextColor;
+    }
+    img {
+      height: 20px;
+      margin-top: 4px;
+    }
+    .socialIcon {
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+//single service;
+.singleService {
+  .card {
+    border: none !important;
+    img {
+      width: 80px;
+      height: 80px;
+      margin: auto;
+    }
+    .card-title {
+      color: $newHeadingColor;
+      font-weight: $font-weight;
+    }
+    .card-text {
+      color: #606268;
+    }
+  }
+}
+
+//bookingAppartment;
+
+// .bookingAppartment {
+//   .card {
+//     .bedImg {
+//       width: 30px;
+//     }
+//     .bathImg {
+//       width: 30px;
+//     }
+//     .price {
+//       font-weight: $font-weight;
+//       color: $buttonBgColor;
+//     }
+//     border: none !important;
+//     .card-body {
+//       .card-title {
+//         color: $buttonBgColor;
+//         font-weight: $font-weight;
+//         .card-text {
+//           .locationImg {
+//             width: 20px;
+//           }
+//         }
+//       }
+//     }
+//     .card-footer {
+//       border: none !important;
+//       h6 {
+//         font-weight: $font-weight;
+//         margin-top: 7px;
+//       }
+//       button {
+//         @extend %button-shared;
+//       }
+//     }
+//   }
+// }
+
+.bookingAppartment {
+  .card {
+    .card-title{
+      color: $newHeadingColor;
+      font-weight: $font-weight;
+    }
+    .card-body{
+      .price{
+        color: $buttonBgColor;
+        font-weight: $font-weight;
+      }
+    }
+    .card-text{
+      img{
+        height: 4vh!important;
+      }
+    }
+    border: none !important;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(199, 197, 197, 0.644);
+  }
+  button {
+    @extend %button-shared;
+  }
+}
+
+//house details;
+.houseDetails {
+  .price {
+    p {
+      margin: 0;
+    }
+  }
+  .property {
+    p {
+      margin: 0;
+    }
+  }
+  .title {
+    h4 {
+      color: $newHeadingColor;
+      font-weight: $font-weight;
+      font-size: 30px;
+    }
+  }
+  .submitForm {
+    box-shadow: 0 0 15px rgb(173, 173, 173);
+    button {
+      @extend %button-shared;
+      width: 100%;
+      // margin: auto;
+    }
+  }
+}
+
+
+.addService__form{
+  button{
+    @extend %button-shared;
+  }
+}
+
+
+//banner FooterTextColor
+.bannerFooter {
+  p {
+    color: $buttonBgColor;
+  }
+  h3 {
+    color: $newHeadingColor;
+    font-weight: $font-weight;
+  }
+}
+
+.service {
+  .services {
+    p {
+      color: $buttonBgColor;
+    }
+    h3 {
+      color: $newHeadingColor;
+      font-weight: $font-weight;
+    }
+  }
+}
+//logged IN page
+@mixin googleFb {
+  width: 460px;
+  height: 50px;
+  background: $textColor;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  margin-left: 8%;
+  border: 1px solid #c7c7c7;
+}
+.loginFrom {
+  border: 1px solid #e5e5e5;
+  padding: 2em;
+  border-radius: 10px;
+  input {
+    border: none;
+    color: $linkColor;
+  }
+  .formInput {
+    border-bottom: 1px solid #c5c5c5 !important;
+  }
+  .logInBtn {
+    width: 460px;
+    height: 50px;
+    background: #275a53;
+    margin: 20px 0;
+    color: $textColor;
+    font-size: 1em;
+  }
+}
+.formSocial {
+  margin-top: 1.5em;
+  span {
+    width: 200px;
+    height: 2px;
+    background: #aaaaaa;
+    margin: 10px;
+  }
+  .google {
+    @include googleFb;
+  }
+  .facebook {
+    @include googleFb;
+  }
+  .fbGoogleImg {
+    width: 30px;
+    float: left;
+  }
+}

@@ -1,0 +1,17 @@
+.admin {
+  height: 100vh;
+}
+.admin::-webkit-scrollbar {
+  display: none;
+}
+.customer__sidebar {
+  background: #ffffff;
+}
+
+.customer__sidebar > ul {
+  list-style: none;
+}
+
+.customer__right {
+  overflow-y: scroll;
+}

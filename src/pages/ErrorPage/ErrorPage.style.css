@@ -1,0 +1,14 @@
+.error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbd062b2;
+}
+
+.error__box {
+  text-align: center;
+  background: #f1f1f1;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+}

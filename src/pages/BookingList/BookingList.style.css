@@ -1,0 +1,10 @@
+.admin__status,
+.admin__status > option {
+  border: none;
+  padding: 0.5rem 0.5rem;
+}
+
+.detailsLink {
+  color: #fff;
+  background-color: #275a53;
+}

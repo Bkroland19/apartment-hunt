@@ -1,0 +1,32 @@
+.login {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login__logo img {
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.login__body {
+  text-align: center;
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.login__btn {
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 1rem 0.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+}
+
+.login__btnLogo {
+  height: 40px;
+}
