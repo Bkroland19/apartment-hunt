@@ -34,13 +34,16 @@ function Login() {
   }, []);
 
   useEffect(() => {
-    dispatch(login({ ...user }));
-    localStorage.setItem(
-      "apartment-hunt",
-      JSON.stringify({
-        ...user,
-      })
-    );
+        if(user){
+            dispatch(login({ ...user }));
+            localStorage.setItem(
+                         "apartment-hunt",
+                        JSON.stringify({
+                              ...user,
+                        })
+                );
+        }
+
     if (user?.email) {
       history.replace("/admin/bookinglist");
     }
