@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Login.style.css";
-import { useHistory, Link, useLocation } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import firebase from "firebase";
 import Config, { auth } from "../../FirabaseConfig";
 import { Form } from "react-bootstrap";

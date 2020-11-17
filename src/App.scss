@@ -122,60 +122,21 @@ $newHeadingColor: #16322e;
   }
 }
 
-//bookingAppartment;
-
-// .bookingAppartment {
-//   .card {
-//     .bedImg {
-//       width: 30px;
-//     }
-//     .bathImg {
-//       width: 30px;
-//     }
-//     .price {
-//       font-weight: $font-weight;
-//       color: $buttonBgColor;
-//     }
-//     border: none !important;
-//     .card-body {
-//       .card-title {
-//         color: $buttonBgColor;
-//         font-weight: $font-weight;
-//         .card-text {
-//           .locationImg {
-//             width: 20px;
-//           }
-//         }
-//       }
-//     }
-//     .card-footer {
-//       border: none !important;
-//       h6 {
-//         font-weight: $font-weight;
-//         margin-top: 7px;
-//       }
-//       button {
-//         @extend %button-shared;
-//       }
-//     }
-//   }
-// }
-
 .bookingAppartment {
   .card {
-    .card-title{
+    .card-title {
       color: $newHeadingColor;
       font-weight: $font-weight;
     }
-    .card-body{
-      .price{
+    .card-body {
+      .price {
         color: $buttonBgColor;
         font-weight: $font-weight;
       }
     }
-    .card-text{
-      img{
-        height: 4vh!important;
+    .card-text {
+      img {
+        height: 4vh !important;
       }
     }
     border: none !important;
@@ -216,13 +177,11 @@ $newHeadingColor: #16322e;
   }
 }
 
-
-.addService__form{
-  button{
+.addService__form {
+  button {
     @extend %button-shared;
   }
 }
-
 
 //banner FooterTextColor
 .bannerFooter {

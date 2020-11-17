@@ -11,14 +11,11 @@ import Home from "./pages/Home/Home";
 import HouseDetails from "./pages/HouseDetails/HouseDetails";
 import ComingSoon from "./pages/ErrorPage/ComingSoon";
 
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "./features/userSlice";
+import { useDispatch } from "react-redux";
 import { login } from "./features/userSlice";
 
 function App() {
   const [user, setUser] = useState({});
-
-  const use = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,8 +24,6 @@ function App() {
         ...(JSON.parse(localStorage.getItem("apartment-hunt")) || {}),
       })
     );
-
-    setUser(JSON.parse(localStorage.getItem("apartment-hunt")) || {});
   }, []);
 
   return (
