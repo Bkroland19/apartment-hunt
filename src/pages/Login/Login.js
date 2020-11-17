@@ -12,6 +12,7 @@ import { login } from "../../features/userSlice";
 function Login() {
   const [user, setUser] = useState({});
   const [newUser, setNewUser] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
 
   const dispatch = useDispatch();
 
@@ -95,7 +96,6 @@ function Login() {
           image: photoURL,
         };
         setUser(googleNewUser);
-        // history.replace(from);
         history.push("/admin/bookinglist");
       })
       .catch(function (error) {
@@ -104,70 +104,68 @@ function Login() {
   };
   //sonjoybarmon *handleSubmit.
   const handleSubmit = (e) => {
-    if (newUser && user.email && user.password) {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.email, user.password)
-        .then((res) => {
-          // history.replace(from);
-          history.replace("/admin/bookinglist");
-          user.updateProfile({
-            // displayName: user.name,
-            name: user.name,
-          });
-        })
-        .catch(function (error) {
-          const newUserInfo = { ...user };
-          newUserInfo.message = error.message;
-          newUserInfo.success = false;
-          setUser(newUserInfo);
-        });
+    e.preventDefault();
+
+    if (!userDetails.email || !userDetails.password) {
+      alert("Please Enter email and password correctly");
     }
-    if (!newUser && user.email && user.password) {
+
+    if (newUser) {
       firebase
         .auth()
-        .signInWithEmailAndPassword(user.email, user.password)
+        .createUserWithEmailAndPassword(userDetails.email, userDetails.password)
+        .then((res) => {
+          const currentUser = firebase.auth().currentUser;
+          currentUser
+            .updateProfile({
+              displayName: userDetails.Fname + " " + userDetails.Lname,
+            })
+            .then(() => {
+              const { displayName, email } = firebase.auth().currentUser;
+              setUser({ name: displayName, email });
+              history.replace("/admin/bookinglist");
+            })
+            .catch((err) => alert(err.message));
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error.message);
+        });
+    } else {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(userDetails.email, userDetails.password)
         .then((res) => {
           const { displayName, email } = res.user;
           const googleNewUser = { name: displayName, email: email };
           setUser(googleNewUser);
-          // history.replace(from);
           history.replace("/admin/bookinglist");
         })
         .catch((error) => {
-          const newUserInfo = { ...user };
-          newUserInfo.message = error.message;
-          newUserInfo.success = false;
-          setUser(newUserInfo);
+          alert(error.message);
         });
     }
-    e.preventDefault();
   };
   //sonjoybarmon *handleChange.
   const handleChange = (e) => {
     let emailValid = true;
     if (e.target.name === "Fname") {
       emailValid = e.target.value;
-      console.log(emailValid);
     }
     if (e.target.name === "Lname") {
       emailValid = e.target.value;
-      console.log(emailValid);
     }
     if (e.target.name === "email") {
       emailValid = /\S+@\S+\.\S+/.test(e.target.value);
-      console.log(emailValid);
     }
     if (e.target.name === "password") {
       const passwordValid = e.target.value.length >= 6;
       emailValid = passwordValid;
-      console.log(emailValid);
     }
     if (emailValid) {
-      const newUserInfo = { ...user };
+      const newUserInfo = { ...userDetails };
       newUserInfo[e.target.name] = e.target.value;
-      setUser(newUserInfo);
-      console.log(newUserInfo);
+      setUserDetails(newUserInfo);
     }
   };
 
@@ -183,6 +181,7 @@ function Login() {
                 {newUser && (
                   <Form.Group className="mt-4">
                     <Form.Control
+                      required
                       onBlur={handleChange}
                       name="Fname"
                       className="formInput"
@@ -194,6 +193,7 @@ function Login() {
                 {newUser && (
                   <Form.Group className="mt-4">
                     <Form.Control
+                      required
                       onBlur={handleChange}
                       name="Lname"
                       className="formInput"
@@ -204,6 +204,7 @@ function Login() {
                 )}
                 <Form.Group className="mt-4">
                   <Form.Control
+                    required
                     onBlur={handleChange}
                     name="email"
                     className="formInput"
@@ -213,6 +214,7 @@ function Login() {
                 </Form.Group>
                 <Form.Group className="mt-4">
                   <Form.Control
+                    required
                     onBlur={handleChange}
                     name="password"
                     className="formInput"
@@ -228,6 +230,7 @@ function Login() {
                 )}
                 <div className="d-flex justify-content-center">
                   <input
+                    required
                     className="logInBtn"
                     variant="primary"
                     type="submit"
